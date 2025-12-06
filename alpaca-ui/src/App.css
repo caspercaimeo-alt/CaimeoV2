@@ -1,0 +1,149 @@
+/* General styling */
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Title */
+/* Utility styles leveraged by inline-styled components */
+.stock-card {
+  display: block;
+  border: 4px solid #462323;
+  border-radius: 8px;
+  background-color: #fcfbf4;
+  color: #462323;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.stock-card__ticker {
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.stock-card__price {
+  font-weight: 700;
+}
+
+/* --- Mobile overrides for inline-styled components --- */
+@media (max-width: 768px) {
+  .status-live-row {
+    flex-direction: column !important;
+    gap: 24px !important;
+    padding: 0 12px !important;
+    width: 100% !important;
+  }
+
+  .status-card,
+  .live-feed-card {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+  }
+
+  .live-feed-card .live-feed-box {
+    min-height: 260px !important;
+    max-height: 360px !important;
+    width: 100% !important;
+  }
+
+  .discovery-wrapper,
+  .portfolio-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 30px !important;
+    padding: 0 0 30px !important;
+  }
+
+  .discovery-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    padding: 0 12px !important;
+    justify-items: center !important;
+    align-items: start !important;
+  }
+
+  .stock-card {
+    width: auto !important;
+    min-width: 108px !important;
+    max-width: 120px !important;
+    padding: 6px 4px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    font-size: 0.72rem !important;
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 4px !important;
+    height: auto !important;
+  }
+
+  .stock-card table {
+    width: 88% !important;
+    margin: 0 auto !important;
+    table-layout: fixed !important;
+  }
+
+  .stock-card table td,
+  .stock-card table th {
+    font-size: 10px !important;
+    padding: 2px 2px !important;
+    vertical-align: middle !important;
+  }
+
+  .stock-card table td:first-child {
+    text-align: left !important;
+    width: 56% !important;
+  }
+
+  .stock-card table td:last-child {
+    text-align: right !important;
+    width: 44% !important;
+  }
+
+  .stock-card__ticker {
+    font-size: 13px !important;
+  }
+
+  .stock-card__price {
+    font-size: 13px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .discovery-placeholder {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .table-wrap {
+    width: 100% !important;
+    margin: 20px auto !important;
+    overflow: visible !important;
+  }
+
+  .table-wrap table {
+    width: 100% !important;
+  }
+}
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 35;
+}
+
+.nav-links-inline a:last-child {
+  border-bottom: none !important;
+}
+
+.discovery-placeholder {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+}

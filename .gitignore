@@ -1,0 +1,17 @@
+# Ignore sensitive environment files
+.env
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore system files
+.DS_Store
+bot_output.log
+bot_error.log
+*.log
+discovered_symbols.json
+discovered_full.json
+discovered_previous.json
+trade_events.jsonl
+alpaca_keys.json

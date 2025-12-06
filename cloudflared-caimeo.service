@@ -1,0 +1,15 @@
+[Unit]
+Description=Cloudflare Tunnel for CAIMEO backend
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=caspercaimeo
+WorkingDirectory=/home/caspercaimeo
+ExecStart=/usr/local/bin/cloudflared tunnel run caimeo-backend
+Restart=on-failure
+RestartSec=5
+Environment=LOG_LEVEL=info
+
+[Install]
+WantedBy=multi-user.target
