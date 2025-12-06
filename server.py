@@ -482,6 +482,10 @@ async def sms_status():
 @app.post("/sms/subscribe")
 async def sms_subscribe(req: SmsSubscribeRequest):
     _ensure_authenticated()
+    digits = "".join(filter(str.isdigit, req.phone))
+    if not digits:
+        raise HTTPException(status_code=400, detail="Invalid phone number")
+
     fallback_sms_email = os.getenv("ALERT_SMS_EMAIL")
     if not NUMVERIFY_API_KEY:
         if fallback_sms_email:
@@ -501,10 +505,6 @@ async def sms_subscribe(req: SmsSubscribeRequest):
             status_code=400,
             detail="NUMVERIFY_API_KEY not configured; set it or provide ALERT_SMS_EMAIL for fallback",
         )
-
-    digits = "".join(filter(str.isdigit, req.phone))
-    if not digits:
-        raise HTTPException(status_code=400, detail="Invalid phone number")
 
     try:
         resp = requests.get(
